@@ -1,0 +1,47 @@
+<!--
+## Exercise 4:
+
+1. Request all the visitors to a work-event from the API.
+
+```
+https://majazocom.github.io/Data/attendees.json
+```
+
+2. Render only the ones that are attending to the DOM.
+
+```
+attending: true
+```
+
+3. Render only the ones that are attending and have some allergy to the DOM.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exercise 2</title>
+        <script defer>
+            async function fetcher() {
+                const response = await fetch("https://majazocom.github.io/Data/attendees.json");
+                const data = await response.json();
+                console.log(data);
+                document.body.insertAdjacentHTML("beforeend", `<h2>Attending</h2>`);
+                for (mon of data) {
+                    if (mon.attending) {
+                        document.body.insertAdjacentHTML("beforeend", `<p>${mon.name}</p>`);
+                    }
+                }
+                document.body.insertAdjacentHTML("beforeend", `<h2>Attending & Allergic</h2>`);
+                for (mon of data) {
+                    if (mon.attending && mon.allergies.length > 0) {
+                        document.body.insertAdjacentHTML("beforeend", `<p>${mon.name}</p>`);
+                    }
+                }
+            }
+            fetcher();
+        </script>
+    </head>
+    <body></body>
+</html>

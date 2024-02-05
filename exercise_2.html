@@ -1,15 +1,15 @@
 <!--
-## Exercise 1:
+## Exercise 2:
 
-1. Request all the pokemons with fetch from the API.
+1. Request all the dogs with fetch from the API.
 
 ```
-https://majazocom.github.io/Data/pokemons.json
+https://majazocom.github.io/Data/dogs.json
 ```
 
-2. Render the objects one and one in the console.
+2. Render the names of the dogs one and one in the console.
 
-3. Render the name of the objects in the DOM instead of the console to make it visible for the user.
+3. Render them out in the DOM instead of the console.
 -->
 
 <!DOCTYPE html>
@@ -17,10 +17,10 @@ https://majazocom.github.io/Data/pokemons.json
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Exercise 1</title>
+        <title>Exercise 2</title>
         <script defer>
             async function fetcher() {
-                const response = await fetch("https://majazocom.github.io/Data/pokemons.json");
+                const response = await fetch("https://majazocom.github.io/Data/dogs.json");
                 const data = await response.json();
                 for (mon of data) {
                     console.log(mon);
